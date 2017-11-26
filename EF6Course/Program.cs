@@ -12,20 +12,24 @@ namespace EF6Course
         {
             using (var db = new ContosoUniversityEntities())
             {
-                db.Database.Log = (sql) => { Console.WriteLine(sql); };
+                //db.Database.Log = (sql) => { Console.WriteLine(sql); };
 
                 //GetCourse_Git(db);
+                //GetDepartment(db);
 
-                var data = (from p in db.Department.Include("Course") select p);
-                foreach (var dept in data)
+            }
+        }
+
+        private static void GetDepartment(ContosoUniversityEntities db)
+        {
+            var data = (from p in db.Department.Include("Course") select p);
+            foreach (var dept in data)
+            {
+                Console.WriteLine(dept.Name);
+                foreach (var course in dept.Course)
                 {
-                    Console.WriteLine(dept.Name);
-                    foreach (var course in dept.Course)
-                    {
-                        Console.WriteLine("\t" + course.Title);
-                    }
+                    Console.WriteLine("\t" + course.Title);
                 }
-
             }
         }
 
