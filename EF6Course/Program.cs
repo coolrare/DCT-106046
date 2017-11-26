@@ -17,16 +17,23 @@ namespace EF6Course
                 //GetCourse_Git(db);
                 //GetDepartment(db);
                 //AddCourse(db);
-                UpdateCourse(db);
+                //UpdateCourse(db);
                 //DeleteCourse(db);
 
+                
             }
         }
 
         private static void DeleteCourse(ContosoUniversityEntities db)
         {
-            var c = db.Course.Find(9);
-            db.Course.Remove(c);
+            //var c = db.Course.Find(9);
+
+            //var c = db.Course.FirstOrDefault(p => p.Title.StartsWith("Git"));
+            //db.Course.Remove(c);
+
+            var c = db.Course.Where(p => p.Title.StartsWith("Git"));
+            db.Course.RemoveRange(c);
+
             db.SaveChanges();
         }
 
