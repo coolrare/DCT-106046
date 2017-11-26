@@ -25,6 +25,7 @@ namespace EF6Course
         public string Title { get; set; }
         public int Credits { get; set; }
         public int DepartmentID { get; set; }
+        public bool IsDeleted { get; set; }
     
         public virtual Department Department { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
