@@ -17,7 +17,7 @@ namespace EF6Course
                 //GetCourse_Git(db);
                 //GetDepartment(db);
                 //AddCourse(db);
-                //UpdateCourse(db);
+                UpdateCourse(db);
                 //DeleteCourse(db);
 
             }
@@ -36,6 +36,8 @@ namespace EF6Course
             foreach (var item in items)
             {
                 item.Credits += 1;
+                item.CreatedOn = DateTime.Now;
+                item.UpdatedOn = DateTime.Now;
             }
             db.SaveChanges();
         }
@@ -44,11 +46,11 @@ namespace EF6Course
         {
             var c = new Course()
             {
-                Title = "Entity Framework 6",
+                Title = "Entity Framework 6.1",
                 Credits = 100,
                 IsDeleted = false
             };
-            c.Department = db.Department.Find(3);
+            c.Department = db.Department.Find(2);
             db.Course.Add(c);
             db.SaveChanges();
         }
