@@ -20,7 +20,25 @@ namespace EF6Course
                 //UpdateCourse(db);
                 //DeleteCourse(db);
 
-                
+                var one = db.Course.Find(14);
+
+                db.Entry(one).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+
+                var c = new Course() { CourseID = 14 };
+                db.Entry(c).State = System.Data.Entity.EntityState.Deleted;
+                db.Course.Remove(c);
+                db.SaveChanges();
+
+                Console.WriteLine(db.Entry(one).State);
+                one.Credits += 1;
+                Console.WriteLine(db.Entry(one).State);
+
+                //db.Entry(one).State = System.Data.Entity.EntityState.Deleted;
+                db.SaveChanges();
+
+                Console.WriteLine(db.Entry(one).State);
+
             }
         }
 
