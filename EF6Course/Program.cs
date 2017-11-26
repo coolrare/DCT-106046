@@ -21,6 +21,21 @@ namespace EF6Course
                 //DeleteCourse(db);
                 //示範實體狀態用法(db);
 
+                //var c = db.Course.Find(1);
+                //c.Credits += 1;
+                //Console.ReadLine();
+                //db.SaveChanges();
+                //Console.ReadLine();
+
+                var data = db.GetCourse("%Git%");
+
+                foreach (var item in data)
+                {
+                    Console.WriteLine(item.Title);
+                }
+                
+
+
             }
         }
 

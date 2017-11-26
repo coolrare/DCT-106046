@@ -72,7 +72,13 @@
     <Compile Include="Department.cs">
       <DependentUpon>ContosoUniversity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Department_Insert_Result.cs">
+      <DependentUpon>ContosoUniversity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Enrollment.cs">
+      <DependentUpon>ContosoUniversity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetCourse_Result.cs">
       <DependentUpon>ContosoUniversity.tt</DependentUpon>
     </Compile>
     <Compile Include="OfficeAssignment.cs">
